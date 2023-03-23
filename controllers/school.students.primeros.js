@@ -17,7 +17,7 @@ class primerosInscribir{
                 body:primerA
             })
         }else{
-            res.json({
+            res.status(400).json({
                 error:{
                     code:400,
                     details:[
@@ -57,7 +57,7 @@ class primerosInscribir{
 
                 if(newStudentsFound != null){
                    
-                   res.json({
+                   res.status(400).json({
                     error:{
                         code:400,
                         details:[
@@ -94,7 +94,7 @@ class primerosInscribir{
                         })
                     })
                     .catch(error=>{
-                        res.json({
+                        res.status(400).json({
                             error:{
                                 code:400,
                                 details:error
@@ -107,7 +107,7 @@ class primerosInscribir{
 
             }else{
 
-                res.json({
+                res.status(400).json({
                     res:"esta es la sesion de los primeros",
                    
                 })
@@ -150,7 +150,7 @@ class primerosInscribir{
 
 
         if(primeroAEstudianteUpdate.matchedCount == 0){
-            res.json({
+            res.status(400).json({
                 error:{
                     code:400,
                     message: "Estudiante no encontrado",
@@ -198,7 +198,7 @@ async eliminarEstudianteDePrimeroA(req, res){
                 })
                 
             }catch(err){
-                res.json({
+                res.status(400).json({
                     error:{
                         code:400,
                         details:[
@@ -210,7 +210,7 @@ async eliminarEstudianteDePrimeroA(req, res){
                 })
             }
         }else{
-            res.json({
+            res.status(400).json({
                 error:{
                     code:400,
                     details:[

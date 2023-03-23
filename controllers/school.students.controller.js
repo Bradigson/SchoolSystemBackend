@@ -15,7 +15,7 @@ class studenstController{
                 response:allEstudiantes
             })
         }else{
-            res.json({
+            res.status(400).json({
                 error:{
                     code:400,
                     message: "No hay estudiantes registrados",
@@ -40,7 +40,7 @@ class studenstController{
         if(validator.default.isEmail(req.body.email)){
             
             if(validator.default.isEmpty(req.body.nombre)){
-                res.json(
+                res.status(400).json(
                     {
                         error: {
                            code: 400,
@@ -57,7 +57,7 @@ class studenstController{
             }else{
                
                 if(validator.default.isEmpty(req.body.nombreMadre)){
-                    res.json(
+                    res.status(400).json(
                         {
                             error: {
                                code: 400,
@@ -84,7 +84,7 @@ class studenstController{
                     {
 
                        
-                        res.json(
+                        res.status(400).json(
                             {
                                 error: 
                                 {
@@ -119,7 +119,7 @@ class studenstController{
 
                         } )
                         .catch((err)=> 
-                            res.json(
+                            res.status(400).json(
                                 {
                                     error: 
                                     {
@@ -134,7 +134,7 @@ class studenstController{
                 }
             }
         }else{
-            res.json({
+            res.status(400).json({
                 state:400,
                 message : `Correo electronico ${req.body.email} no valido`
             })
@@ -167,7 +167,7 @@ class studenstController{
                 })
             })
             .catch(err=>{
-                res.json({
+                res.status(400).json({
                     error:{
                         code:400,
                         details:[
@@ -201,7 +201,7 @@ class studenstController{
             })
         })
         .catch(err=>{
-            res.json({
+            res.status(400).json({
                 error:{
                     code:400,
                     message:`Estudiante ${id} no eliminado`,

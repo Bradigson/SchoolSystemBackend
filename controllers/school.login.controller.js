@@ -25,7 +25,7 @@ class loginController{
             })
 
         }else if(validator.default.isEmpty(userPassword)){
-            res.json({
+            res.status(400).json({
                 error:{
                     code:400,
                     message:"Campo userPassword vacio",
@@ -48,7 +48,7 @@ class loginController{
         
     
             if(userFound.userName != null){
-                res.json({
+                res.status(400).json({
                     error:{
                         code:400,
                         message:"El usuario registrado",
@@ -69,7 +69,7 @@ class loginController{
                     })
                 })
                 .catch((err)=>{
-                    res.json({
+                    res.status(400).json({
                         error:{
                             code:400,
                             message:"El usuario y contraseña ya existe",
@@ -102,7 +102,7 @@ class loginController{
 
         if(foundUser.length === 0){
             
-            res.json({
+            res.status(400).json({
                 error:{
                     code:400,
                     message:"unauthorized",

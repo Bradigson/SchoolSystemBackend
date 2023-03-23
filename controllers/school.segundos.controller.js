@@ -12,7 +12,7 @@ class segundoController{
             })
         })
         .catch((err)=>{
-            res.json({
+            res.status(400).json({
                 error:{
                     code:400,
                     message:"No data",
@@ -51,7 +51,7 @@ class segundoController{
 
                 if(newStudentsFound != null){
                    
-                   res.json({
+                   res.status(400).json({
                     error:{
                         code:400,
                         details:[
@@ -88,7 +88,7 @@ class segundoController{
                         })
                     })
                     .catch(error=>{
-                        res.json({
+                        res.status(400).json({
                             error:{
                                 code:400,
                                 details:error
@@ -145,7 +145,7 @@ class segundoController{
 
 
         if(segundoAEstudianteUpdate.matchedCount == 0){
-            res.json({
+            res.status(400).json({
                 error:{
                     code:400,
                     message: "Estudiante no encontrado",
@@ -199,7 +199,7 @@ class segundoController{
                     })
                     
                 }catch(err){
-                    res.json({
+                    res.status(400).json({
                         error:{
                             code:400,
                             details:[
@@ -211,7 +211,7 @@ class segundoController{
                     })
                 }
             }else{
-                res.json({
+                res.status(400).json({
                     error:{
                         code:400,
                         details:[

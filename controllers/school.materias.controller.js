@@ -16,7 +16,7 @@ class materiasController{
 
         })
         .catch((err)=>{
-            res.json({
+            res.status(400).json({
                 error:{
                     code:200,
                     message:"No hay materias",
@@ -37,7 +37,7 @@ class materiasController{
     async agregarMaterias(req, res){
 
         if(validator.default.isEmpty(req.body.nombre)){
-            res.json({
+            res.status(400).json({
                 error:{
                     code:400,
                     message:"Campo materia vacio",
@@ -55,7 +55,7 @@ class materiasController{
             });
             
            if(meteriaEncontrada != null){
-                res.json({
+                res.status(400).json({
                     error:{
                         code:400,
                         message:"Materia encontrada",
@@ -77,7 +77,7 @@ class materiasController{
                     })
                 })
                 .catch((err)=>{
-                    res.json({
+                    res.status(400).json({
                         error:{
                             code:400,
                             message:`Materia (${req.body.nombre}) no agregada`,
@@ -109,7 +109,7 @@ class materiasController{
             })
         })
         .catch((err)=>{
-            res.json({
+            res.status(400).json({
                 error:{
                     code:400,
                     message:"Materia no actualizada",
@@ -139,7 +139,7 @@ class materiasController{
             })
         })
         .catch(err=>{
-            res.json({
+            res.status(400).json({
                 error:{
                     code:400,
                     message:"Materia no eliminada",

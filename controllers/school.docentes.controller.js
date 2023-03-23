@@ -16,7 +16,7 @@ class docenteController{
             })
         })
         .catch(err=>{
-            res.json({
+            res.status(400).json({
                 error:
                     {
                         code:400,
@@ -51,9 +51,9 @@ class docenteController{
             })
         })
         .catch((err)=>{
-            res.json({
+            res.status(400).json({
                 error:{
-                    code:200,
+                    code:400,
                     message:"Docente no registrado",
                     details:[
                         {
@@ -110,7 +110,7 @@ class docenteController{
             })
         })
         .catch(err=>{
-            res.json({
+            res.status(400).json({
                 error:{
                     code:400,
                     message:"Docente no actualizado",
@@ -138,7 +138,7 @@ class docenteController{
             })
         })
         .catch(err=>{
-            res.json({
+            res.status(400).json({
                 error:{
                     code:400,
                     message:"Docente no elimindo",

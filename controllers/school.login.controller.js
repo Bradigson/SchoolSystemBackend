@@ -135,16 +135,20 @@ class loginController{
     //validar token en los endpoint
     async validateUrlWithToken(req, res, next){
         const accessToken = req.headers['authorization'];
-        if(!accessToken) res.status(400).send({message : 'Access is denied'});
-    
-        jwt.verify(accessToken, process.env.TOKEN_KEY, (err, user)=>{
-            if(err){
-                res.status(400).send({message : 'Access is dinied or token expired'});
-            }else{
-                req.user = user;
-                next();
-            }
-        });
+        if(!accessToken){
+            res.status(400).send({message : 'Access is denied'});
+        }else{
+            
+            jwt.verify(accessToken, process.env.TOKEN_KEY, (err, user)=>{
+                if(err){
+                    res.status(400).send({message : 'Access is dinied or token expired'});
+                }else{
+                    req.user = user;
+                    next();
+                }
+            });
+        }
+        
     }
 
 }

@@ -36,10 +36,10 @@ router
 .delete('/eliminar_docente/:id', loginControoler.validateUrlWithToken,  docentesControllers.eliminarDocente)
 
 
-.get('/todos_los_estudiantes_segundo', segundoController.todosLosEstudiantesSegundo)
-.post('/inscribir_seundo', segundoController.inscribirEstudianteEnSegundo)
-.post('/actualizar_estudiante_segundo', segundoController.actualizarEstudianteSegundoA)
-.delete('/eliminar_estudiante_segundo/:userId', segundoController.eliminarEstudianteDeSegundoA)
+.get('/todos_los_estudiantes_segundo', loginControoler.validateUrlWithToken, segundoController.todosLosEstudiantesSegundo)
+.post('/inscribir_seundo', loginControoler.validateUrlWithToken, segundoController.inscribirEstudianteEnSegundo)
+.post('/actualizar_estudiante_segundo', loginControoler.validateUrlWithToken, segundoController.actualizarEstudianteSegundoA)
+.delete('/eliminar_estudiante_segundo/:userId', loginControoler.validateUrlWithToken, segundoController.eliminarEstudianteDeSegundoA)
 
 
 

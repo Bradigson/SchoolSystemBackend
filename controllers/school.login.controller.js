@@ -65,7 +65,7 @@ class loginController{
                 .then(()=>{
                     res.json({
                         status:200,
-                        message: `Usuario ${req.bodyuserName} registrado` 
+                        message: `Usuario ${req.body.userName} registrado` 
                     })
                 })
                 .catch((err)=>{

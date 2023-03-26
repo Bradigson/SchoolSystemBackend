@@ -120,7 +120,7 @@ class loginController{
             const user = {userName : userName};
             const password = {userPassword : userPassword};
 
-            const accessToken = jwt.sign(user, process.env.TOKEN_KEY, {expiresIn:'1h'});
+            const accessToken = jwt.sign(user, process.env.TOKEN_KEY, {expiresIn:'5h'});
 
             res.header('authorization', accessToken).json({
                 status:200,
